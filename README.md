@@ -122,7 +122,7 @@ const pokemon = [
 
 You can run `npm test` to confirm your app's functionality matches specs- be sure to export the app at the bottom of your server file so the tests can import it.  
 
-# Day Two
+# Hungry for more? 
 
 ### Complete CRUD functionality
 
