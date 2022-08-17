@@ -1,4 +1,5 @@
 // imports for node app at the top 
+const { next } = require('cheerio/lib/api/traversing')
 const express = require('express')
 
 
@@ -19,6 +20,17 @@ app.set('view engine', 'ejs')
 const pokemon = require('./pokemon.js')
 // console.log(pokemon)
 
+// MIDDLEWARE - this will run before every request is route
+
+app.use(express.static('public'))
+
+app.use((req,res,next)=>{
+    console.log('I am running for every request')
+    next()
+})
+
+
+
 
 // restful routes -
 // index route
@@ -38,8 +50,21 @@ app.get('/pokemon',(req,res)=>{
 // function index (req,res,next){
 //     res.send(pokemon)
 // }
+
+
 // show route 
 
+app.get('/pokemon/:poke', (req,res)=>{
+    // use res.send to verify data is accessible
+    // return res.send(pokemon[req.params.poke]
+        // situations where multiple 
+            // conditional rendering different views depending on what is sents ()
+            // redirect to a different 
+
+    res.render('show.ejs', {pokemon: pokemon[req.params.poke]})
+    // testing for /pokemon/0
+    // refactor to show.ejs viw
+})
 
 
 // server initialization - start it up!
