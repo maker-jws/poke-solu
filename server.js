@@ -7,7 +7,11 @@ const app = express()
 
 // app configuration
 const PORT = 3000 
+// configures our applications template default (.ejs)
+app.set('view engine', 'ejs')
 
+// global app state (global variables)
+// console.log(app.locals)
 
 // model layer here - data
 // importing data from our pokemon module 
@@ -18,11 +22,22 @@ const pokemon = require('./pokemon.js')
 
 // restful routes -
 // index route
-app.get('/pokemon',index)
+app.get('/pokemon',(req,res)=>{
+    // res.send(pokemon) 
+    // refactor res.send -> res.render()
 
-function index (req,res,next){
-    res.send(pokemon)
-}
+    // context variable - our templates data 
+    // data we pass to the template
+    const context = { allPokemon: pokemon } 
+    // ejs/express template language is expecting an object for res.render
+    
+    // additional functionality - that will parse or update the data 
+    res.render('index.ejs', context)
+})
+
+// function index (req,res,next){
+//     res.send(pokemon)
+// }
 // show route 
 
 
