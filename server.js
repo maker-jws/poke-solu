@@ -24,12 +24,12 @@ const pokemon = require('./pokemon.js')
 
 app.use(express.static('public'))
 
-app.use((req,res,next)=>{
-    console.log('I am running for every request')
-    next()
-})
+// app.use((req,res,next)=>{
+//     console.log('I am running for every request')
+//     next()
+// })
 
-
+// app.use('/pokemon', pokemonController)
 
 
 // restful routes -
