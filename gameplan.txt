@@ -1,0 +1,14 @@
+- setup server (entry point file - server.js) (1)
+
+- set up data layer (model) - pokemon
+- set up two routes
+    - index route (all Pokemon ) (2)
+    - show route (one Pokemon - param - id, index, pokeIndex) (4)
+
+- set up Views (Templates)  
+    - index view (index.ejs) (3)
+    - show view (show.ejs) (4)
+    - home view (home.ejs) ** 
+
+- set up static files - using express.static middleware (6)
+    - middleware that runs before every request is handled by our router
